@@ -186,24 +186,97 @@ console.log('find test:', find('', [true, 5, '', 3, 5]));
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
-function isFirstLetter(letter, string) {
 
+/**
+ * Checks if a given letter is the first letter in a given string
+ * @param {string} letter Input a letter 
+ * @param {string} string Input a string to check the first letter of
+ * @return Returns true if letter is the first letter in the string, returns false otherwise
+ */
+
+function isFirstLetter(letter, string) {
+  console.log('in isFirstLetter:', letter, string);
+  if(letter === string[0]){
+    return true;
+  } else{
+    return false;
+  }
 }
+
+// function test
+
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
+console.log('isFirstLetter test:', isFirstLetter('b', 'Better make a sandwich.'));
+console.log('isFirstLetter test:', isFirstLetter('B', 'Better make a sandwich.'));
+console.log('isFirstLetter test:', isFirstLetter(34, '34 days until vacation!'));
+console.log('isFirstLetter test:', isFirstLetter('3', '34 days until vacation!'));
+console.log('isFirstLetter test:', isFirstLetter('34', '34 days until vacation!'));
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
+
+/**
+ * Adds up the numbers in an array if the array only contains numbers
+ * @param {[]} array Input an array of numbers
+ * @return Returns the sum of all the numbers in an array
+ */
+
+function sumAll(array) {
+  console.log('in sumAll:', array);
   let sum = 0
+  for(let i=0; i<array.length; i += 1){
+    if(typeof array[i] !== 'number'){
+      return 'Please only enter numbers in the array.';
+    }
+  }
   // TODO: loop to add items
+  for(let i=0; i<array.length; i += 1){
+    sum = sum += array[i];
+  }
   return sum;
 }
+
+// function test
+
+console.log('sumAll test:', sumAll([1, 2, 3, 4, 5]));
+console.log('sumAll test:', sumAll([1, -2, 3, 4, 5]));
+console.log('sumAll test:', sumAll([1, 2, 3.5, 4, 5]));
+console.log('sumAll test:', sumAll([1, 2, 3, '4', 5]));
+console.log('sumAll test:', sumAll([1, true, 3, 4, 5]));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
 
+/**
+ * Creates a new array containing all of the positive numbers in the input array.
+ * Creates an empty array if no positive numbers in given array.
+ * @param {[]} array Input an array of numbers.
+ * @return Returns a new array containing the positive numbers in the input array.
+ */
 
+function positiveNumbers(array){
+  console.log('in positiveNumbers', array);
+  let positiveArray = [];
+  for(let i=0; i<array.length; i += 1){
+    if(typeof array[i] !== 'number'){
+      return 'Please only enter numbers in the array.';
+    }
+  }
+  for(let i=0; i<array.length; i += 1){
+    if(array[i] > 0){
+      positiveArray.push(array[i]);
+    }
+  }
+  return positiveArray;
+}
+
+// function test
+
+console.log('positiveNumbers test:', positiveNumbers([4, 0, -5, 6, -77, 98, 500]));
+console.log('positiveNumbers test:', positiveNumbers([-6, -8, -44, -678]));
+console.log('positiveNumbers test:', positiveNumbers([4, 0, 7/8, 6, 0.8396, 98, 500]));
+console.log('positiveNumbers test:', positiveNumbers([4, 0, 'maybe', 6, 0.8396, 98, 500]));
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
