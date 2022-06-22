@@ -315,7 +315,7 @@ console.log('.replace syntax test:', string, newString);
 
 console.log('secretString test:', secretString('JavAscript is cool'));
 console.log('secretString test:', secretString('Lots of WAys to mAke a cake.'));
-console.log('secretString test:', secretString('cool beans, you got it!'));
+console.log('secretString test:', secretString('cOOl BEANS, you got it!'));
 
 
 
