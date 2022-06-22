@@ -277,7 +277,45 @@ console.log('positiveNumbers test:', positiveNumbers([4, 0, -5, 6, -77, 98, 500]
 console.log('positiveNumbers test:', positiveNumbers([-6, -8, -44, -678]));
 console.log('positiveNumbers test:', positiveNumbers([4, 0, 7/8, 6, 0.8396, 98, 500]));
 console.log('positiveNumbers test:', positiveNumbers([4, 0, 'maybe', 6, 0.8396, 98, 500]));
+console.log('positiveNumbers test:', positiveNumbers([-4, 1, -1, 2, -2, 3, -3, 4]));
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+// From Edabit:
+// Create a function that takes one string parameter and returns a coded version of the input string.
+// Provided note: the function should make the following changes:
+// 'a' --> 4
+// 'e' --> 3
+// 'i' --> 1
+// 'o' --> 0
+// 's' --> 5
+
+/**
+ * Create a coded version of the input string
+ * @param {string} initialString Input a string
+ * @return Returns a coded version of the input string.
+ */
+
+function secretString(initialString){
+  console.log('in secretString:', initialString);
+  let lowerCaseString = initialString.toLowerCase();
+  console.log('all lowercase:', lowerCaseString); // validating that codedString is all lowercase
+  let codedString = lowerCaseString.replace(/a/g, 4).replace(/e/g, 3).replace(/i/g, 1). replace(/o/g, 0).replace(/s/g, 5);
+	return codedString;
+}
+
+// testing .replace syntax
+let string = 'I love to boogie.'
+let newString = string.replace('I', 'You');
+console.log('.replace syntax test:', string, newString);
+
+// testing secretString 
+
+console.log('secretString test:', secretString('JavAscript is cool'));
+console.log('secretString test:', secretString('Lots of WAys to mAke a cake.'));
+console.log('secretString test:', secretString('cool beans, you got it!'));
+
+
+
