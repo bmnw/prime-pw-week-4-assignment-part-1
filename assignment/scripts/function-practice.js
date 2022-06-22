@@ -89,12 +89,34 @@ console.log('multiplyThree test:', multiplyThree('string', 100, 3));
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
+
+/**
+ * Evaluates whether an entered number is greater than zero after checking whether entered parameter is a number.
+ * @param {number} number Input a number.
+ * @returns true if number is > 0, false otherwise
+ */
+
 function isPositive( number ) {
-  if ( number > 0 ){
-    return;
+  console.log('in isPositive:', number);
+  if(typeof number === 'number'){
+    if ( number > 0 ){
+      return true;
+    } else {
+      return false;
+    }
+  } else{
+    return 'Enter numbers only, please.'
   }
-    return;
 }
+
+// function test
+
+console.log('isPositive test:', isPositive(-78));
+console.log('isPositive test:', isPositive('string'));
+console.log('isPositive test:', isPositive(0.23458));
+console.log('isPositive test:', isPositive(-543));
+console.log('isPositive test:', isPositive(false));
+
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
 console.log( 'isPositive - should say true', isPositive(3) );
@@ -104,16 +126,60 @@ console.log( 'isPositive - should say false', isPositive(-3) );
 
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
-function getLast( array ) {
 
+/**
+ * Determines the last item in an array.
+ * @param {array} array Input array.
+ * @return The last item in the entered array. If array is empty, return 'undefined'.
+ */
+
+function getLast( array ) {
+  console.log('in getLast:', array);
+  let lastItem = array[array.length-1];
+  if(array.length === 0){
+    return 'undefined';
+  } else if(array.length>0){
+    return lastItem;
+  }
 }
+
+// function test
+
+console.log('getLast test:', getLast([]));
+console.log('getLast test:', getLast([0.45, true, false, 'string', 67]));
+console.log('getLast test:', getLast([45, 98, 23, 12, -6]));
+console.log('getLast test:', getLast([true, false, false, false, true, true]));
+console.log('getLast test:', getLast([1]));
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
+
+/**
+ * Searches for given value in the given array.
+ * @param {value} value Input the value you want to find
+ * @param {[]} array Input the array to search through
+ * @return Returns true if the value is found in the array, returns false if not found
+ */
+
 function find( value, array ){
-  
+  console.log('in find:', value, array);
+  for(let i=0; i<array.length; i += 1){
+    if(value === array[i]){
+      return true; // function will end at the first match
+    }
+  }
+  return false; // function will end here if the value is not found
 }
+
+// function test
+
+console.log('find test:', find(5, [true, 5, 6, 3, 5]));
+console.log('find test:', find(5, [true, false, 6, 3, 'five']));
+console.log('find test:', find(-3, [2, false, 'string', -3, 124234]));
+console.log('find test:', find(5, []));
+console.log('find test:', find(false, [true, 5, 6, 3, 5]));
+console.log('find test:', find('', [true, 5, '', 3, 5]));
 
 // ----------------------
 // Stretch Goals
