@@ -191,7 +191,7 @@ console.log('find test:', find('', [true, 5, '', 3, 5]));
  * Checks if a given letter is the first letter in a given string
  * @param {string} letter Input a letter 
  * @param {string} string Input a string to check the first letter of
- * @return Returns true if letter is the first letter in the string, returns false otherwise
+ * @return Returns true if input letter is the first letter in the input string, returns false otherwise
  */
 
 function isFirstLetter(letter, string) {
@@ -256,20 +256,15 @@ console.log('sumAll test:', sumAll([1, true, 3, 4, 5]));
  */
 
 function positiveNumbers(array){
-  console.log('in positiveNumbers', array);
-  let positiveArray = [];
-  for(let i=0; i<array.length; i += 1){
-    if(typeof array[i] !== 'number'){
-      return 'Please only enter numbers in the array.';
+    console.log('in positiveNumbers', array);
+    let positiveArray = [];
+    for(let i=0; i<array.length; i += 1){
+      if(array[i] > 0 && typeof array[i] === 'number'){
+        positiveArray.push(array[i]);
+      }
     }
+    return positiveArray;
   }
-  for(let i=0; i<array.length; i += 1){
-    if(array[i] > 0){
-      positiveArray.push(array[i]);
-    }
-  }
-  return positiveArray;
-}
 
 // function test
 
@@ -277,7 +272,7 @@ console.log('positiveNumbers test:', positiveNumbers([4, 0, -5, 6, -77, 98, 500]
 console.log('positiveNumbers test:', positiveNumbers([-6, -8, -44, -678]));
 console.log('positiveNumbers test:', positiveNumbers([4, 0, 7/8, 6, 0.8396, 98, 500]));
 console.log('positiveNumbers test:', positiveNumbers([4, 0, 'maybe', 6, 0.8396, 98, 500]));
-console.log('positiveNumbers test:', positiveNumbers([-4, 1, -1, 2, -2, 3, -3, 4]));
+console.log('positiveNumbers test:', positiveNumbers([-4, 1, -1, 2, -2, 3, -3, 4, false]));
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
@@ -301,9 +296,9 @@ console.log('positiveNumbers test:', positiveNumbers([-4, 1, -1, 2, -2, 3, -3, 4
 function secretString(initialString){
   console.log('in secretString:', initialString);
   let lowerCaseString = initialString.toLowerCase();
-  console.log('all lowercase:', lowerCaseString); // validating that codedString is all lowercase
-  let codedString = lowerCaseString.replace(/a/g, 4).replace(/e/g, 3).replace(/i/g, 1). replace(/o/g, 0).replace(/s/g, 5);
-	return codedString;
+  console.log('all lowercase:', lowerCaseString); // validating that lowerCaseString is all lowercase
+  let codedString = lowerCaseString.replace(/a/g, 4).replace(/e/g, 3).replace(/i/g, 1). replace(/o/g, 0).replace(/s/g, 5); // globally replacing all vowels with code number
+	return codedString; // returning the encoded string
 }
 
 // testing .replace syntax
